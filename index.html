@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Estate Hub | Find Your Perfect Property</title>
+<meta name="description" content="Browse homes for sale and rent with Estate Hub — a modern real estate catalog." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%A0%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- ===== Header ===== -->
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a href="#top" class="brand">
+      <span class="brand-icon">⌂</span>
+      <span>Estate<b>Hub</b></span>
+    </a>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="#listings">Listings</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#contact" class="btn btn-ghost">Sign In</a>
+      <a href="#listings" class="btn btn-primary">List a Property</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <div class="container hero-inner">
+    <span class="eyebrow">Sample content · demo listings</span>
+    <h1>Find a place<br> to call <span class="accent">home</span>.</h1>
+    <p class="hero-sub">Explore houses, apartments and condos for sale or rent across our featured cities. Placeholder listings — swap in your own properties, photos and copy.</p>
+
+    <form class="search-card" id="searchForm">
+      <div class="search-field">
+        <label for="searchKeyword">Keyword or city</label>
+        <input type="text" id="searchKeyword" placeholder="e.g. Austin, downtown, condo…" />
+      </div>
+      <div class="search-field">
+        <label for="searchType">I want to</label>
+        <select id="searchType">
+          <option value="all">Buy or Rent</option>
+          <option value="sale">Buy</option>
+          <option value="rent">Rent</option>
+        </select>
+      </div>
+      <div class="search-field">
+        <label for="searchPrice">Max price</label>
+        <select id="searchPrice">
+          <option value="0">Any price</option>
+          <option value="1500">$1,500</option>
+          <option value="3000">$3,000</option>
+          <option value="300000">$300,000</option>
+          <option value="600000">$600,000</option>
+          <option value="1000000">$1,000,000</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary search-btn">Search</button>
+    </form>
+
+    <div class="hero-stats">
+      <div class="stat"><strong>428+</strong><span>Active listings</span></div>
+      <div class="stat"><strong>18</strong><span>Cities covered</span></div>
+      <div class="stat"><strong>15 yrs</strong><span>Market experience</span></div>
+      <div class="stat"><strong>4.9★</strong><span>Client rating</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Listings ===== -->
+<section class="listings" id="listings">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">Property catalog</span>
+        <h2>Featured Properties</h2>
+      </div>
+      <p class="results-count"><strong id="resultsCount">0</strong> properties found</p>
+    </div>
+
+    <div class="catalog-layout">
+      <!-- Filters sidebar -->
+      <aside class="filters" id="filters">
+        <div class="filters-head">
+          <h3>Filters</h3>
+          <button type="button" id="resetFilters" class="link-btn">Reset</button>
+        </div>
+
+        <div class="filter-group">
+          <h4>Status</h4>
+          <div class="chip-group" id="statusChips">
+            <button type="button" class="chip active" data-status="all">All</button>
+            <button type="button" class="chip" data-status="sale">For Sale</button>
+            <button type="button" class="chip" data-status="rent">For Rent</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h4>Property type</h4>
+          <select id="filterPropertyType">
+            <option value="all">All types</option>
+            <option value="House">House</option>
+            <option value="Apartment">Apartment</option>
+            <option value="Condo">Condo</option>
+            <option value="Townhouse">Townhouse</option>
+            <option value="Studio">Studio</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <h4>Location</h4>
+          <select id="filterLocation">
+            <option value="all">All cities</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <h4>Bedrooms</h4>
+          <select id="filterBeds">
+            <option value="0">Any</option>
+            <option value="1">1+</option>
+            <option value="2">2+</option>
+            <option value="3">3+</option>
+            <option value="4">4+</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <h4>Max price: <span id="priceRangeLabel">Any</span></h4>
+          <input type="range" id="filterPriceRange" min="0" max="1000000" step="10000" value="1000000" />
+        </div>
+
+        <div class="filter-group">
+          <h4>Sort by</h4>
+          <select id="sortBy">
+            <option value="default">Recommended</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="beds-desc">Most Bedrooms</option>
+            <option value="newest">Newest</option>
+          </select>
+        </div>
+      </aside>
+
+      <!-- Cards grid -->
+      <div class="listings-main">
+        <div class="grid" id="propertyGrid"><!-- cards injected by script.js --></div>
+        <p class="empty-state" id="emptyState" hidden>No properties match your filters. Try widening your search.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== How it works ===== -->
+<section class="how-it-works" id="how-it-works">
+  <div class="container">
+    <span class="eyebrow">Simple process</span>
+    <h2>How Estate Hub works</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <h3>Search &amp; filter</h3>
+        <p>Narrow down listings by city, price, bedrooms and status until you find the right fit.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <h3>Book a tour</h3>
+        <p>Reach out through the listing page to schedule an in-person or virtual walkthrough.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <h3>Make it official</h3>
+        <p>Our agents guide you through the offer, paperwork and closing — start to finish.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== About ===== -->
+<section class="about" id="about">
+  <div class="container about-inner">
+    <div class="about-copy">
+      <span class="eyebrow">About Estate Hub</span>
+      <h2>A modern catalog for a modern market.</h2>
+      <p>Estate Hub is a template real-estate catalog page — built to be forked, restyled and filled with real listings. Replace this copy, the sample properties in <code>script.js</code>, and the contact details below with your own agency's information.</p>
+      <ul class="about-list">
+        <li>Fully responsive layout, no frameworks required</li>
+        <li>Client-side filtering &amp; sorting, easy to wire up to a real API later</li>
+        <li>Ready to deploy on GitHub Pages in minutes</li>
+      </ul>
+    </div>
+    <div class="about-card">
+      <div class="about-card-row"><strong>Founded</strong><span>2011</span></div>
+      <div class="about-card-row"><strong>Agents</strong><span>32 across 18 cities</span></div>
+      <div class="about-card-row"><strong>Properties closed</strong><span>2,600+</span></div>
+      <div class="about-card-row"><strong>Avg. time to close</strong><span>34 days</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contact / CTA ===== -->
+<section class="contact" id="contact">
+  <div class="container contact-inner">
+    <div class="contact-copy">
+      <span class="eyebrow">Get in touch</span>
+      <h2>Have a property to list, or looking to buy?</h2>
+      <p>Fill out the form and a member of the Estate Hub team will follow up. This form is a static demo — connect it to Formspree, Netlify Forms or your own backend to make it functional.</p>
+      <div class="contact-details">
+        <div><strong>Phone</strong><span>+1 (555) 019-2837</span></div>
+        <div><strong>Email</strong><span>hello@estatehub.example</span></div>
+        <div><strong>Office</strong><span>128 Market St, Austin, TX</span></div>
+      </div>
+    </div>
+    <form class="contact-form" onsubmit="return false;">
+      <label>Full name<input type="text" placeholder="Jane Doe" required /></label>
+      <label>Email<input type="email" placeholder="jane@email.com" required /></label>
+      <label>I'm interested in
+        <select>
+          <option>Buying a property</option>
+          <option>Renting a property</option>
+          <option>Listing my property</option>
+        </select>
+      </label>
+      <label>Message<textarea rows="3" placeholder="Tell us what you're looking for…"></textarea></label>
+      <button type="submit" class="btn btn-primary">Send message</button>
+    </form>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-col brand-col">
+      <a href="#top" class="brand"><span class="brand-icon">⌂</span><span>Estate<b>Hub</b></span></a>
+      <p>A demo real-estate catalog page. Replace with your agency's branding and listings.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Explore</h4>
+      <a href="#listings">Listings</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#about">About</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#contact">Contact</a>
+      <a href="#">Careers</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+    <div class="footer-col">
+      <h4>Follow</h4>
+      <div class="social-row">
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="LinkedIn">IN</a>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <span>© <span id="year"></span> Estate Hub. All sample content, for demo purposes.</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
