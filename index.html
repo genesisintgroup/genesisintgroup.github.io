@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Harmony Hall Residence | For Sale in St. Philip, Barbados</title>
-<meta name="description" content="Two-story Bajan home for sale on a 5,423 sq ft corner lot in Harmony Hall, St. Philip, Barbados. Asking $275,000." />
+<title>Estate Hub | Find Your Perfect Property</title>
+<meta name="description" content="Browse homes for sale and rent with Estate Hub — a growing catalog of properties across multiple locations." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css" />
@@ -17,20 +17,19 @@
   <div class="container header-inner">
     <a href="#top" class="brand">
       <span class="brand-icon">⌂</span>
-      <span>Harmony Hall <b>Residence</b></span>
+      <span>Estate<b>Hub</b></span>
     </a>
 
     <nav class="main-nav" id="mainNav">
-      <a href="#overview">Overview</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#details">Details</a>
-      <a href="#location">Location</a>
+      <a href="#listings">Listings</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
 
     <div class="header-actions">
-      <span class="price-pill">$275,000</span>
-      <a href="#contact" class="btn btn-primary">Inquire Now</a>
+      <a href="#contact" class="btn btn-ghost">Sign In</a>
+      <a href="#contact" class="btn btn-primary">List a Property</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
@@ -39,133 +38,196 @@
 </header>
 
 <!-- ===== Hero ===== -->
-<section class="hero-photo" id="hero" style="background-image: linear-gradient(180deg, rgba(19,35,59,.35), rgba(19,35,59,.78)), url('images/hero.jpeg');">
-  <div class="container hero-photo-inner">
-    <span class="badge-status">For Sale</span>
-    <h1>A Coral &amp; Mint Bajan Home<br>in Harmony Hall</h1>
-    <p class="hero-address">📍 Harmony Hall, St. Philip, Barbados &middot; Lot 63</p>
+<section class="hero">
+  <div class="container hero-inner">
+    <span class="eyebrow">New listings added regularly</span>
+    <h1>Find a place<br> to call <span class="accent">home</span>.</h1>
+    <p class="hero-sub">Browse our growing catalog of properties for sale or rent across multiple locations — starting in Barbados, with more markets coming soon.</p>
 
-    <div class="hero-quickfacts">
-      <div class="qf"><strong>$275,000</strong><span>Asking price</span></div>
-      <div class="qf"><strong>2</strong><span>Storeys</span></div>
-      <div class="qf"><strong>3<sup>*</sup></strong><span>Bedrooms</span></div>
-      <div class="qf"><strong>2<sup>*</sup></strong><span>Bathrooms</span></div>
-      <div class="qf"><strong>5,423</strong><span>Sq ft of land</span></div>
-    </div>
-
-    <div class="hero-ctas">
-      <a href="#contact" class="btn btn-primary">Schedule a Viewing</a>
-      <a href="#gallery" class="btn btn-ghost-light">See Photos ↓</a>
-    </div>
+    <form class="search-card" id="searchForm">
+      <div class="search-field">
+        <label for="searchKeyword">Keyword or city</label>
+        <input type="text" id="searchKeyword" placeholder="e.g. St. Philip, Bridgetown, condo…" />
+      </div>
+      <div class="search-field">
+        <label for="searchType">I want to</label>
+        <select id="searchType">
+          <option value="all">Buy or Rent</option>
+          <option value="sale">Buy</option>
+          <option value="rent">Rent</option>
+        </select>
+      </div>
+      <div class="search-field">
+        <label for="searchPrice">Max price</label>
+        <select id="searchPrice">
+          <option value="0">Any price</option>
+          <option value="1500">$1,500</option>
+          <option value="3000">$3,000</option>
+          <option value="300000">$300,000</option>
+          <option value="600000">$600,000</option>
+          <option value="1000000">$1,000,000</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary search-btn">Search</button>
+    </form>
   </div>
 </section>
 
-<!-- ===== Overview ===== -->
-<section class="overview" id="overview">
-  <div class="container overview-inner">
-    <div class="overview-copy">
-      <span class="eyebrow">Property overview</span>
-      <h2>A colourful corner of St. Philip, full of character.</h2>
-      <p>Tucked into a quiet corner lot in Harmony Hall, this two-storey Bajan home pairs classic wall-house architecture with a wave of Caribbean colour — soft coral walls, a mint-green veranda, and a hand-finished scalloped parapet that gives the roofline real personality. A wraparound upper balcony with turned white balusters overlooks the covered ground-floor porch, while a private, walled front garden of hibiscus and ixora frames the entrance.</p>
-      <p>Inside, the two-level layout offers flexible living — space for a growing family on the main floor, with a separate balcony-accessed level upstairs that could suit guests, extended family, or rental income. A covered carport and generous paved driveway complete the property, all set behind a decorative block perimeter wall for privacy from the street.</p>
-      <p class="disclaimer-note">* Interior layout (bedroom/bathroom count) is approximate pending a full walkthrough — ask us for the confirmed floor plan.</p>
-    </div>
-
-    <div class="facts-card">
-      <h3>Quick Facts</h3>
-      <div class="facts-row"><strong>Status</strong><span>For Sale</span></div>
-      <div class="facts-row"><strong>Asking price</strong><span>$275,000</span></div>
-      <div class="facts-row"><strong>Property type</strong><span>Two-storey detached home</span></div>
-      <div class="facts-row"><strong>Land area</strong><span>5,423 sq ft</span></div>
-      <div class="facts-row"><strong>Total lot (incl. road reserve)</strong><span>7,507 sq ft</span></div>
-      <div class="facts-row"><strong>Parish</strong><span>Saint Philip, Barbados</span></div>
-      <div class="facts-row"><strong>Lot number</strong><span>Lot 63, Harmony Hall</span></div>
-      <div class="facts-row"><strong>Land surveyed</strong><span>17 June 1971</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== Gallery ===== -->
-<section class="gallery" id="gallery">
+<!-- ===== Listings ===== -->
+<section class="listings" id="listings">
   <div class="container">
-    <span class="eyebrow">Photo gallery</span>
-    <h2>Take a closer look</h2>
-    <div class="gallery-grid">
-      <button class="gallery-item gallery-large" data-full="images/hero.jpeg">
-        <img src="images/hero.jpeg" alt="Front porch and coral facade of the Harmony Hall home" loading="lazy">
-        <span class="gallery-caption">Front porch &amp; veranda</span>
-      </button>
-      <button class="gallery-item" data-full="images/street.jpeg">
-        <img src="images/street.jpeg" alt="Street view showing the two-storey home on its corner lot" loading="lazy">
-        <span class="gallery-caption">Corner lot &amp; street view</span>
-      </button>
-      <button class="gallery-item" data-full="images/carport.jpeg">
-        <img src="images/carport.jpeg" alt="Upper balcony, scalloped parapet and covered entrance" loading="lazy">
-        <span class="gallery-caption">Balcony &amp; parapet detail</span>
-      </button>
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">Property catalog</span>
+        <h2>Featured Properties</h2>
+      </div>
+      <p class="results-count"><strong id="resultsCount">0</strong> properties found</p>
+    </div>
+
+    <div class="catalog-layout">
+      <!-- Filters sidebar -->
+      <aside class="filters" id="filters">
+        <div class="filters-head">
+          <h3>Filters</h3>
+          <button type="button" id="resetFilters" class="link-btn">Reset</button>
+        </div>
+
+        <div class="filter-group">
+          <h4>Status</h4>
+          <div class="chip-group" id="statusChips">
+            <button type="button" class="chip active" data-status="all">All</button>
+            <button type="button" class="chip" data-status="sale">For Sale</button>
+            <button type="button" class="chip" data-status="rent">For Rent</button>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h4>Property type</h4>
+          <select id="filterPropertyType">
+            <option value="all">All types</option>
+            <option value="House">House</option>
+            <option value="Apartment">Apartment</option>
+            <option value="Condo">Condo</option>
+            <option value="Townhouse">Townhouse</option>
+            <option value="Studio">Studio</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <h4>Location</h4>
+          <select id="filterLocation">
+            <option value="all">All cities</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <h4>Bedrooms</h4>
+          <select id="filterBeds">
+            <option value="0">Any</option>
+            <option value="1">1+</option>
+            <option value="2">2+</option>
+            <option value="3">3+</option>
+            <option value="4">4+</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <h4>Max price: <span id="priceRangeLabel">Any</span></h4>
+          <input type="range" id="filterPriceRange" min="0" max="1000000" step="10000" value="1000000" />
+        </div>
+
+        <div class="filter-group">
+          <h4>Sort by</h4>
+          <select id="sortBy">
+            <option value="default">Recommended</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="beds-desc">Most Bedrooms</option>
+            <option value="newest">Newest</option>
+          </select>
+        </div>
+      </aside>
+
+      <!-- Cards grid -->
+      <div class="listings-main">
+        <div class="grid" id="propertyGrid"><!-- cards injected by script.js --></div>
+        <p class="empty-state" id="emptyState" hidden>No properties match your filters. Try widening your search.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ===== Details / Features ===== -->
-<section class="details" id="details">
-  <div class="container details-inner">
-    <div>
-      <span class="eyebrow">What we love about it</span>
-      <h2>Features &amp; highlights</h2>
-      <ul class="feature-list">
-        <li>Hand-finished scalloped parapet &amp; gable — a real architectural signature</li>
-        <li>Wraparound upper balcony with classic turned white balusters</li>
-        <li>Covered ground-floor veranda, perfect for morning coffee</li>
-        <li>Private, walled corner lot with mature hibiscus &amp; ixora landscaping</li>
-        <li>Covered carport plus generous paved driveway</li>
-        <li>Two full levels of living space with separate balcony access upstairs</li>
-        <li>Quiet residential street in Harmony Hall, St. Philip</li>
-        <li>Decorative block perimeter wall for privacy and curb appeal</li>
+<!-- ===== How it works ===== -->
+<section class="how-it-works" id="how-it-works">
+  <div class="container">
+    <span class="eyebrow">Simple process</span>
+    <h2>How Estate Hub works</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <h3>Search &amp; filter</h3>
+        <p>Narrow down listings by city, price, bedrooms and status until you find the right fit.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <h3>Book a tour</h3>
+        <p>Reach out through the listing page to schedule an in-person or virtual walkthrough.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <h3>Make it official</h3>
+        <p>Our team guides you through the offer, paperwork and closing — start to finish.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== About ===== -->
+<section class="about" id="about">
+  <div class="container about-inner">
+    <div class="about-copy">
+      <span class="eyebrow">About Estate Hub</span>
+      <h2>A growing catalog, one real listing at a time.</h2>
+      <p>Estate Hub is our property catalog, built to expand as we add real listings across new locations. It currently features our first property in Harmony Hall, St. Philip, Barbados — with more on the way in other markets.</p>
+      <ul class="about-list">
+        <li>Fully responsive layout, no frameworks required</li>
+        <li>Client-side filtering &amp; sorting across every listing</li>
+        <li>New properties and locations added as they're listed</li>
       </ul>
     </div>
-    <div class="plotplan-card">
-      <img src="images/plotplan.jpeg" alt="1971 surveyed plot plan of Lot 63, Harmony Hall, St. Philip, Barbados" loading="lazy">
-      <p class="plotplan-caption">Original surveyed plot plan — Lot 63, Harmony Hall, St. Philip. Land 5,423 sq ft + road reserve 2,084 sq ft = 7,507 sq ft total. Certified 17 June 1971 by D. A. Kinch, Land Surveyor.</p>
+    <div class="about-card">
+      <div class="about-card-row"><strong>Featured properties</strong><span id="aboutCount">—</span></div>
+      <div class="about-card-row"><strong>Locations</strong><span>Barbados (more coming soon)</span></div>
+      <div class="about-card-row"><strong>Status</strong><span>Actively expanding</span></div>
     </div>
   </div>
 </section>
 
-<!-- ===== Location ===== -->
-<section class="location" id="location">
-  <div class="container">
-    <span class="eyebrow">Location</span>
-    <h2>Harmony Hall, St. Philip</h2>
-    <p class="location-intro">St. Philip is Barbados' largest parish, stretching across the island's breezy south-east — home to Grantley Adams International Airport, the dramatic Atlantic coastline, and some of the island's most laid-back south-coast beaches. Harmony Hall sits within easy reach of local shops, schools and the main routes connecting to Bridgetown and the south coast.</p>
-    <div class="map-frame">
-      <iframe
-        title="Map of St. Philip, Barbados"
-        src="https://www.openstreetmap.org/export/embed.html?bbox=-59.4850%2C13.0750%2C-59.4350%2C13.1150&layer=mapnik&marker=13.0950%2C-59.4600"
-        loading="lazy">
-      </iframe>
-    </div>
-    <p class="map-note">Map shows the general Harmony Hall / St. Philip area — exact address provided upon inquiry.</p>
-  </div>
-</section>
-
-<!-- ===== Contact ===== -->
+<!-- ===== Contact / CTA ===== -->
 <section class="contact" id="contact">
   <div class="container contact-inner">
     <div class="contact-copy">
       <span class="eyebrow">Get in touch</span>
-      <h2>Interested in this property?</h2>
-      <p>Reach out for the full floor plan, additional photos, or to schedule a viewing of the Harmony Hall home. This form is a static demo — connect it to Formspree, Netlify Forms, or your own backend to make it functional.</p>
+      <h2>Have a property to list, or looking to buy?</h2>
+      <p>Fill out the form and our team will follow up. This form is a static demo — connect it to Formspree, Netlify Forms or your own backend to make it functional.</p>
       <div class="contact-details">
-        <div><strong>Listed by</strong><span>Juan Jo Cordova</span></div>
-        <div><strong>Email</strong><span>jcordova@pangeaintlgroup.com</span></div>
-        <div><strong>Property location</strong><span>Harmony Hall, St. Philip, Barbados</span></div>
+        <div><strong>Customer Service</strong><span>customerservice@genesispii.com</span></div>
+        <div><strong>Listings</strong><span>clinggi@genesisintgroup.com</span></div>
+        <div><strong>Juan Jo Cordova</strong><span>jcordova@genesisintgroup.com</span></div>
       </div>
     </div>
     <form class="contact-form" onsubmit="return false;">
       <label>Full name<input type="text" placeholder="Jane Doe" required /></label>
       <label>Email<input type="email" placeholder="jane@email.com" required /></label>
-      <label>Message<textarea rows="4" placeholder="I'd like to schedule a viewing of the Harmony Hall property…"></textarea></label>
-      <button type="submit" class="btn btn-primary">Send inquiry</button>
+      <label>I'm interested in
+        <select>
+          <option>Buying a property</option>
+          <option>Renting a property</option>
+          <option>Listing my property</option>
+        </select>
+      </label>
+      <label>Message<textarea rows="3" placeholder="Tell us what you're looking for…"></textarea></label>
+      <button type="submit" class="btn btn-primary">Send message</button>
     </form>
   </div>
 </section>
@@ -174,24 +236,24 @@
 <footer class="site-footer">
   <div class="container footer-inner">
     <div class="footer-col brand-col">
-      <a href="#top" class="brand"><span class="brand-icon">⌂</span><span>Harmony Hall <b>Residence</b></span></a>
-      <p>Two-storey home for sale on a 5,423 sq ft corner lot in Harmony Hall, St. Philip, Barbados.</p>
+      <a href="#top" class="brand"><span class="brand-icon">⌂</span><span>Estate<b>Hub</b></span></a>
+      <p>A growing catalog of real properties across multiple locations.</p>
     </div>
     <div class="footer-col">
       <h4>Explore</h4>
-      <a href="#overview">Overview</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#details">Details</a>
-      <a href="#location">Location</a>
+      <a href="#listings">Listings</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#about">About</a>
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
-      <a href="#contact">Inquire now</a>
-      <a href="mailto:jcordova@pangeaintlgroup.com">jcordova@pangeaintlgroup.com</a>
+      <a href="mailto:customerservice@genesispii.com">customerservice@genesispii.com</a>
+      <a href="mailto:clinggi@genesisintgroup.com">clinggi@genesisintgroup.com</a>
+      <a href="mailto:jcordova@genesisintgroup.com">jcordova@genesisintgroup.com</a>
     </div>
   </div>
   <div class="container footer-bottom">
-    <span>© <span id="year"></span> Harmony Hall Residence. Listing details provided by the seller; buyers should verify all information independently.</span>
+    <span>© <span id="year"></span> Estate Hub. Listing details provided by the seller; buyers should verify all information independently.</span>
   </div>
 </footer>
 
