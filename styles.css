@@ -415,8 +415,9 @@ code {
   gap: 3em;
 }
 .contact-details { display: flex; flex-direction: column; gap: .9em; margin-top: 1.5em; }
-.contact-details div { display: flex; flex-direction: column; }
-.contact-details strong { font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--accent); }
+.contact-details div { display: flex; flex-direction: column; gap: .35em; }
+.contact-details strong { font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--accent); margin-bottom: .1em; }
+.contact-details span { color: var(--ink-soft); }
 .contact-form {
   background: var(--surface);
   border-radius: var(--radius-lg);
