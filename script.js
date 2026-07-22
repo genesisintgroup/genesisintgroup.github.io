@@ -12,6 +12,7 @@ const PROPERTIES = [
     status: "sale",
     price: 275000,
     city: "Harmony Hall, St. Philip, Barbados",
+    country: "Barbados",
     beds: 3,
     baths: 2,
     land: 5423,
@@ -30,6 +31,7 @@ const PROPERTIES = [
     price: 137500,
     priceDisplay: "$275,000 BBD",
     city: "Chance Hall, St. Lucy, Barbados",
+    country: "Barbados",
     acres: 1.26,
     land: 54885,
     photo: "images/chancehall-aerial.jpeg",
@@ -37,6 +39,21 @@ const PROPERTIES = [
     featured: true,
     daysAgo: 0,
     detailUrl: "property-chance-hall.html",
+  },
+  {
+    id: 3,
+    title: "One on Marlin Studio Retreat",
+    type: "Studio",
+    status: "sale",
+    price: 225000,
+    city: "Cheshire Hall & Richmond Hill, Providenciales, Turks and Caicos",
+    country: "Turks and Caicos Islands",
+    land: 448,
+    photo: "images/onemarlin-hero.jpeg",
+    isPhotoImage: true,
+    featured: true,
+    daysAgo: 0,
+    detailUrl: "property-onemarlin.html",
   },
 ];
 
@@ -51,6 +68,7 @@ const aboutCount = document.getElementById("aboutCount");
 const state = {
   status: "all",
   propertyType: "all",
+  country: "all",
   location: "all",
   minBeds: 0,
   maxPrice: 1000000,
@@ -102,6 +120,7 @@ function applyFilters() {
   let list = PROPERTIES.filter((p) => {
     if (state.status !== "all" && p.status !== state.status) return false;
     if (state.propertyType !== "all" && p.type !== state.propertyType) return false;
+    if (state.country !== "all" && p.country !== state.country) return false;
     if (state.location !== "all" && p.city !== state.location) return false;
     if (state.minBeds > 0 && p.beds < state.minBeds) return false;
     if (state.maxPrice > 0 && p.price > state.maxPrice) return false;
@@ -133,9 +152,18 @@ function render() {
 }
 
 // ---------------------------------------------------------------
-// Populate the location dropdown from the data set
+// Populate the country & location dropdowns from the data set
 // ---------------------------------------------------------------
 function populateLocations() {
+  const countrySelect = document.getElementById("filterCountry");
+  const countries = [...new Set(PROPERTIES.map((p) => p.country).filter(Boolean))].sort();
+  countries.forEach((country) => {
+    const opt = document.createElement("option");
+    opt.value = country;
+    opt.textContent = country;
+    countrySelect.appendChild(opt);
+  });
+
   const select = document.getElementById("filterLocation");
   const cities = [...new Set(PROPERTIES.map((p) => p.city))].sort();
   cities.forEach((city) => {
@@ -166,6 +194,11 @@ function initFilters() {
     render();
   });
 
+  document.getElementById("filterCountry").addEventListener("change", (e) => {
+    state.country = e.target.value;
+    render();
+  });
+
   document.getElementById("filterLocation").addEventListener("change", (e) => {
     state.location = e.target.value;
     render();
@@ -193,6 +226,7 @@ function initFilters() {
   document.getElementById("resetFilters").addEventListener("click", () => {
     state.status = "all";
     state.propertyType = "all";
+    state.country = "all";
     state.location = "all";
     state.minBeds = 0;
     state.maxPrice = 1000000;
@@ -202,6 +236,7 @@ function initFilters() {
     chips.forEach((c) => c.classList.remove("active"));
     document.querySelector('[data-status="all"]').classList.add("active");
     document.getElementById("filterPropertyType").value = "all";
+    document.getElementById("filterCountry").value = "all";
     document.getElementById("filterLocation").value = "all";
     document.getElementById("filterBeds").value = "0";
     priceRange.value = 1000000;
