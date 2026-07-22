@@ -1,14 +1,14 @@
 /* ============ Tokens ============ */
 :root {
-  --ink: #16212e;
-  --ink-soft: #4a5567;
-  --bg: #f6f4ef;
+  --ink: #182042;
+  --ink-soft: #545e6e;
+  --bg: #f1f3f6;
   --surface: #ffffff;
-  --line: #e5e1d8;
-  --primary: #13233b;
-  --primary-soft: #1f3a5c;
-  --accent: #c9922e;
-  --accent-soft: #f3e1bd;
+  --line: #dfe3e8;
+  --primary: #1e285a;
+  --primary-soft: #2a3a78;
+  --accent: #00a4d7;
+  --accent-soft: #d9f1fa;
   --green: #2f6f4f;
   --radius-lg: 20px;
   --radius-md: 14px;
@@ -93,7 +93,7 @@ code {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(246, 244, 239, .92);
+  background: rgba(241, 243, 246, .92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
 }
@@ -148,8 +148,8 @@ code {
 .hero {
   padding: 4.5em 0 3em;
   background:
-    radial-gradient(circle at 85% 10%, rgba(201,146,46,.18), transparent 45%),
-    linear-gradient(180deg, #eef0e9, var(--bg));
+    radial-gradient(circle at 85% 10%, rgba(0,164,215,.16), transparent 45%),
+    linear-gradient(180deg, #e9edf2, var(--bg));
 }
 .hero-inner { text-align: center; display: flex; flex-direction: column; align-items: center; }
 .hero h1 {
@@ -183,7 +183,7 @@ code {
   padding: .7em .8em;
   font-size: .95rem;
   font-family: inherit;
-  background: #fcfbf9;
+  background: #f6f8fa;
 }
 .search-btn { height: 100%; }
 
@@ -236,14 +236,14 @@ code {
   padding: .6em .7em;
   border-radius: var(--radius-sm);
   border: 1px solid var(--line);
-  background: #fcfbf9;
+  background: #f6f8fa;
   font-family: inherit;
   font-size: .9rem;
 }
 .chip-group { display: flex; flex-wrap: wrap; gap: .5em; }
 .chip {
   border: 1px solid var(--line);
-  background: #fcfbf9;
+  background: #f6f8fa;
   padding: .45em .9em;
   border-radius: 999px;
   font-size: .85rem;
@@ -308,7 +308,7 @@ code {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 40%, rgba(19,35,59,.55));
+  background: linear-gradient(180deg, transparent 40%, rgba(30,40,90,.55));
   z-index: 0;
 }
 .card-photo .badge { position: relative; z-index: 1; }
@@ -326,7 +326,7 @@ code {
 .badge.rent { color: var(--primary-soft); }
 
 .photo-1 { background: linear-gradient(135deg, #7a9b76, #3c5a45); }
-.photo-2 { background: linear-gradient(135deg, #c9922e, #7a5a1e); }
+.photo-2 { background: linear-gradient(135deg, #00a4d7, #1e285a); }
 .photo-3 { background: linear-gradient(135deg, #6c8ead, #2c435c); }
 .photo-4 { background: linear-gradient(135deg, #b17a63, #5b3a2c); }
 .photo-5 { background: linear-gradient(135deg, #9a8cc2, #4b3d73); }
@@ -409,7 +409,7 @@ code {
 .about-card-row span { color: var(--ink-soft); }
 
 /* ============ Contact ============ */
-.contact { padding: 4.5em 0; background: #eef0e9; }
+.contact { padding: 4.5em 0; background: #e9edf2; }
 .contact-inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -435,7 +435,7 @@ code {
   padding: .7em .8em;
   font-family: inherit;
   font-size: .95rem;
-  background: #fcfbf9;
+  background: #f6f8fa;
   resize: vertical;
 }
 
@@ -527,7 +527,7 @@ code {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(19,35,59,0) 40%, rgba(19,35,59,.72));
+  background: linear-gradient(180deg, rgba(30,40,90,0) 40%, rgba(30,40,90,.72));
   z-index: 0;
 }
 .badge-status {
@@ -616,7 +616,7 @@ code {
   border-bottom: 1px solid var(--line);
 }
 .facts-row:last-child { border-bottom: none; }
-.facts-row:nth-child(odd) { background: #fbfaf7; }
+.facts-row:nth-child(odd) { background: #f5f7f9; }
 .facts-row strong { color: var(--ink-soft); font-weight: 600; }
 .facts-row span { color: var(--ink); font-weight: 600; }
 
@@ -672,7 +672,7 @@ code {
   padding: .6em .8em;
   font-size: .78rem;
   color: #fff;
-  background: linear-gradient(0deg, rgba(19,35,59,.75), transparent);
+  background: linear-gradient(0deg, rgba(30,40,90,.75), transparent);
   text-align: left;
 }
 
@@ -693,7 +693,7 @@ code {
   border-top: 1px solid var(--line);
 }
 
-.location { padding: 4em 0; background: #eef0e9; }
+.location { padding: 4em 0; background: #e9edf2; }
 .location-intro { max-width: 700px; }
 .map-frame {
   width: 100%;
