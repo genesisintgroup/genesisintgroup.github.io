@@ -19,15 +19,78 @@
   --font-body: "Inter", sans-serif;
 }
 
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body {
   margin: 0;
   font-family: var(--font-body);
   color: var(--ink);
   background: var(--bg);
   line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
 }
+
+/* Safari/iOS renders inputs, selects, textareas and buttons with heavy
+   native chrome that fights our custom borders/radius — reset to a plain
+   box so the same CSS below renders identically across browsers. */
+button, input, select, textarea {
+  -webkit-appearance: none;
+  appearance: none;
+  font: inherit;
+  color: inherit;
+  border-radius: 0;
+}
+select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none' stroke='%23545e6e' stroke-width='1.8'%3E%3Cpath d='M5 7.5l5 5 5-5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right .8em center;
+  background-size: 14px;
+  padding-right: 2.2em !important;
+}
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--line);
+  outline: none;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--line);
+}
+input[type="range"]::-moz-range-track {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--line);
+  border: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  margin-top: -6px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+  cursor: pointer;
+}
+/* iOS Safari auto-zooms the page when a focused form field renders below
+   16px, which reads as "the margins break" until the user pinches back
+   out — keep every field at 16px so focusing never triggers it. */
+input, select, textarea { font-size: 16px; }
 h1, h2, h3, h4 { font-family: var(--font-head); margin: 0 0 .4em; line-height: 1.15; font-weight: 700; }
 p { margin: 0 0 1em; color: var(--ink-soft); }
 a { color: inherit; text-decoration: none; }
@@ -94,6 +157,7 @@ code {
   top: 0;
   z-index: 50;
   background: rgba(241, 243, 246, .92);
+  -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--line);
 }
@@ -198,9 +262,9 @@ code {
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   padding: .7em .8em;
-  font-size: .95rem;
+  font-size: 1rem;
   font-family: inherit;
-  background: #f6f8fa;
+  background-color: #f6f8fa;
 }
 .search-btn { height: 100%; }
 
@@ -253,9 +317,9 @@ code {
   padding: .6em .7em;
   border-radius: var(--radius-sm);
   border: 1px solid var(--line);
-  background: #f6f8fa;
+  background-color: #f6f8fa;
   font-family: inherit;
-  font-size: .9rem;
+  font-size: 1rem;
 }
 .chip-group { display: flex; flex-wrap: wrap; gap: .5em; }
 .chip {
@@ -474,8 +538,8 @@ code {
   border-radius: var(--radius-sm);
   padding: .7em .8em;
   font-family: inherit;
-  font-size: .95rem;
-  background: #f6f8fa;
+  font-size: 1rem;
+  background-color: #f6f8fa;
   resize: vertical;
 }
 
