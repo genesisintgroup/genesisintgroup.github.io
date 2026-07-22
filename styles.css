@@ -335,6 +335,7 @@ code {
 .card-body { padding: 1.1em 1.2em 1.3em; display: flex; flex-direction: column; gap: .5em; flex: 1; }
 .card-price { font-family: var(--font-head); font-size: 1.25rem; color: var(--primary); }
 .card-price span { font-size: .8rem; color: var(--ink-soft); font-weight: 500; font-family: var(--font-body); }
+.card-price.coming-soon { color: var(--accent); font-size: 1.05rem; }
 .card-title { font-size: 1rem; font-weight: 600; margin: 0; }
 .card-location { font-size: .85rem; color: var(--ink-soft); display: flex; align-items: center; gap: .3em; }
 .card-meta {
@@ -574,6 +575,7 @@ code {
   font-size: 1.7rem;
   color: var(--primary);
 }
+.hero-quickfacts .qf-price.coming-soon { color: var(--accent); font-size: 1.4rem; }
 .qf-group { display: flex; gap: 1.6em; flex-wrap: wrap; }
 .qf { display: flex; flex-direction: column; gap: .2em; }
 .qf span:first-child { font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-soft); }

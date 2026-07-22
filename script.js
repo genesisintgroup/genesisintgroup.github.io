@@ -20,6 +20,7 @@ const PROPERTIES = [
     featured: true,
     daysAgo: 0,
     detailUrl: "property-harmony-hall.html",
+    comingSoon: true,
   },
 ];
 
@@ -42,7 +43,9 @@ const state = {
 };
 
 function renderCard(p) {
-  const priceLabel = p.status === "rent" ? `${currency(p.price)}<span>/mo</span>` : currency(p.price);
+  const priceLabel = p.comingSoon
+    ? "Coming Soon"
+    : p.status === "rent" ? `${currency(p.price)}<span>/mo</span>` : currency(p.price);
   const photoInner = p.isPhotoImage
     ? `<img src="${p.photo}" alt="${p.title}" loading="lazy">`
     : `<span class="icon">⌂</span>`;
@@ -57,7 +60,7 @@ function renderCard(p) {
         <span class="badge ${p.status}">${p.status === "sale" ? "For Sale" : "For Rent"}</span>
       </div>
       <div class="card-body">
-        <div class="card-price">${priceLabel}</div>
+        <div class="card-price${p.comingSoon ? " coming-soon" : ""}">${priceLabel}</div>
         <h3 class="card-title">${p.title}</h3>
         <div class="card-location">📍 ${p.city} &middot; ${p.type}</div>
         <div class="card-meta">
