@@ -107,7 +107,7 @@ code {
 .brand {
   display: flex;
   align-items: center;
-  gap: .5em;
+  gap: .7em;
   font-family: var(--font-head);
   font-weight: 600;
   font-size: 1.2rem;
@@ -125,6 +125,23 @@ code {
   font-size: 1.1rem;
 }
 .brand b { color: var(--accent); font-weight: 700; }
+.brand-logo { height: 26px; width: auto; display: block; }
+.brand-logo-chip {
+  display: inline-flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 8px;
+  padding: 5px 9px;
+  line-height: 0;
+}
+.brand-logo-chip .brand-logo { height: 22px; }
+.brand-sep {
+  width: 1px;
+  height: 22px;
+  background: var(--line);
+}
+.brand-col .brand-sep { background: rgba(255, 255, 255, .25); }
+.brand-name { font-family: var(--font-head); font-weight: 600; font-size: 1.05rem; }
 .main-nav {
   display: flex;
   gap: 2em;
@@ -407,6 +424,28 @@ code {
 .about-card-row:last-child { border-bottom: none; }
 .about-card-row strong { color: var(--ink); }
 .about-card-row span { color: var(--ink-soft); }
+
+.market-flags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6em;
+  margin: 1.2em 0 .6em;
+}
+.market-flag {
+  display: inline-flex;
+  align-items: center;
+  gap: .45em;
+  padding: .45em .9em;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: .84rem;
+  font-weight: 600;
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+}
+.market-flag .flag { font-size: 1.15rem; line-height: 1; }
+.market-note { font-size: .82rem; color: var(--ink-soft); margin-top: .2em; }
 
 /* ============ Contact ============ */
 .contact { padding: 4.5em 0; background: #e9edf2; }
