@@ -19,6 +19,7 @@ const PROPERTIES = [
     isPhotoImage: true,
     featured: true,
     daysAgo: 0,
+    detailUrl: "property-harmony-hall.html",
   },
 ];
 
@@ -47,9 +48,10 @@ function renderCard(p) {
     : `<span class="icon">⌂</span>`;
   const photoClass = p.isPhotoImage ? "" : p.photo;
   const landMeta = p.land ? `<span>📐 ${p.land.toLocaleString()} sq ft land</span>` : "";
+  const href = p.detailUrl || "#";
 
   return `
-    <button class="card gallery-item" data-id="${p.id}" data-full="${p.isPhotoImage ? p.photo : ''}">
+    <a class="card" href="${href}" data-id="${p.id}">
       <div class="card-photo ${photoClass}">
         ${photoInner}
         <span class="badge ${p.status}">${p.status === "sale" ? "For Sale" : "For Rent"}</span>
@@ -65,7 +67,7 @@ function renderCard(p) {
         </div>
         <div class="card-cta">View details →</div>
       </div>
-    </button>
+    </a>
   `;
 }
 
@@ -101,7 +103,6 @@ function render() {
   if (aboutCount) aboutCount.textContent = PROPERTIES.length;
   grid.innerHTML = list.map(renderCard).join("");
   emptyState.hidden = list.length !== 0;
-  attachCardLightbox();
 }
 
 // ---------------------------------------------------------------
@@ -216,46 +217,9 @@ function initNav() {
   });
 }
 
-// ---------------------------------------------------------------
-// Lightbox — click a card with a real photo to see it larger
-// ---------------------------------------------------------------
-function initLightbox() {
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightboxImg");
-  const closeBtn = document.getElementById("lightboxClose");
-
-  const close = () => {
-    lightbox.classList.remove("open");
-    lightboxImg.src = "";
-  };
-
-  closeBtn.addEventListener("click", close);
-  lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) close();
-  });
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") close();
-  });
-}
-
-function attachCardLightbox() {
-  const lightbox = document.getElementById("lightbox");
-  const lightboxImg = document.getElementById("lightboxImg");
-  document.querySelectorAll(".gallery-item").forEach((item) => {
-    const full = item.dataset.full;
-    if (!full) return;
-    item.addEventListener("click", () => {
-      lightboxImg.src = full;
-      lightboxImg.alt = item.querySelector("img")?.alt || "";
-      lightbox.classList.add("open");
-    });
-  });
-}
-
 document.getElementById("year").textContent = new Date().getFullYear();
 
 populateLocations();
 initFilters();
 initNav();
-initLightbox();
 render();
