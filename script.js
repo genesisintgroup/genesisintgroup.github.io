@@ -22,6 +22,22 @@ const PROPERTIES = [
     detailUrl: "property-harmony-hall.html",
     comingSoon: true,
   },
+  {
+    id: 2,
+    title: "Chance Hall Heritage Estate",
+    type: "Land",
+    status: "sale",
+    price: 137500,
+    priceDisplay: "$275,000 BBD",
+    city: "Chance Hall, St. Lucy, Barbados",
+    acres: 1.26,
+    land: 54885,
+    photo: "images/chancehall-aerial.jpeg",
+    isPhotoImage: true,
+    featured: true,
+    daysAgo: 0,
+    detailUrl: "property-chance-hall.html",
+  },
 ];
 
 const currency = (n) =>
@@ -45,12 +61,20 @@ const state = {
 function renderCard(p) {
   const priceLabel = p.comingSoon
     ? "Coming Soon"
+    : p.priceDisplay
+    ? p.priceDisplay
     : p.status === "rent" ? `${currency(p.price)}<span>/mo</span>` : currency(p.price);
   const photoInner = p.isPhotoImage
     ? `<img src="${p.photo}" alt="${p.title}" loading="lazy">`
     : `<span class="icon">⌂</span>`;
   const photoClass = p.isPhotoImage ? "" : p.photo;
-  const landMeta = p.land ? `<span>📐 ${p.land.toLocaleString()} sq ft land</span>` : "";
+  const bedsMeta = p.beds !== undefined ? `<span>🛏 ${p.beds === 0 ? "Studio" : p.beds + " bd"}</span>` : "";
+  const bathsMeta = p.baths !== undefined ? `<span>🛁 ${p.baths} ba</span>` : "";
+  const landMeta = p.acres
+    ? `<span>📐 ${p.acres} acres</span>`
+    : p.land
+    ? `<span>📐 ${p.land.toLocaleString()} sq ft land</span>`
+    : "";
   const href = p.detailUrl || "#";
 
   return `
@@ -64,8 +88,8 @@ function renderCard(p) {
         <h3 class="card-title">${p.title}</h3>
         <div class="card-location">📍 ${p.city} &middot; ${p.type}</div>
         <div class="card-meta">
-          <span>🛏 ${p.beds === 0 ? "Studio" : p.beds + " bd"}</span>
-          <span>🛁 ${p.baths} ba</span>
+          ${bedsMeta}
+          ${bathsMeta}
           ${landMeta}
         </div>
         <div class="card-cta">View details →</div>
