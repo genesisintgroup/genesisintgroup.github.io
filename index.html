@@ -22,17 +22,25 @@
     </a>
 
     <nav class="main-nav" id="mainNav">
-      <a href="#listings">Listings</a>
-      <a href="#how-it-works">How It Works</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="#contact" class="mobile-nav-cta">Sign In</a>
-      <a href="#contact" class="mobile-nav-cta mobile-nav-cta-primary">List a Property</a>
+      <a href="#listings" data-i18n-en="Listings" data-i18n-es="Propiedades">Listings</a>
+      <a href="#how-it-works" data-i18n-en="How It Works" data-i18n-es="Cómo Funciona">How It Works</a>
+      <a href="#about" data-i18n-en="About" data-i18n-es="Nosotros">About</a>
+      <a href="#contact" data-i18n-en="Contact" data-i18n-es="Contacto">Contact</a>
+      <div class="lang-toggle-header lang-toggle-mobile">
+        <button type="button" data-lang-btn="en" class="active">English</button>
+        <button type="button" data-lang-btn="es">Español</button>
+      </div>
+      <a href="#contact" class="mobile-nav-cta" data-i18n-en="Sign In" data-i18n-es="Iniciar sesión">Sign In</a>
+      <a href="#contact" class="mobile-nav-cta mobile-nav-cta-primary" data-i18n-en="List a Property" data-i18n-es="Publicar propiedad">List a Property</a>
     </nav>
 
     <div class="header-actions">
-      <a href="#contact" class="btn btn-ghost">Sign In</a>
-      <a href="#contact" class="btn btn-primary">List a Property</a>
+      <div class="lang-toggle-header">
+        <button type="button" data-lang-btn="en" class="active">EN</button>
+        <button type="button" data-lang-btn="es">ES</button>
+      </div>
+      <a href="#contact" class="btn btn-ghost" data-i18n-en="Sign In" data-i18n-es="Iniciar sesión">Sign In</a>
+      <a href="#contact" class="btn btn-primary" data-i18n-en="List a Property" data-i18n-es="Publicar propiedad">List a Property</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
@@ -43,27 +51,27 @@
 <!-- ===== Hero ===== -->
 <section class="hero">
   <div class="container hero-inner">
-    <span class="eyebrow">New listings added regularly</span>
-    <h1>Find a place<br> to call <span class="accent">home</span>.</h1>
-    <p class="hero-sub">Browse our growing catalog of properties for sale or rent across multiple countries — currently featuring listings in Barbados, the Turks and Caicos Islands and Colombia, with more markets coming soon.</p>
+    <span class="eyebrow" data-i18n-en="New listings added regularly" data-i18n-es="Nuevas propiedades agregadas regularmente">New listings added regularly</span>
+    <h1><span data-i18n-en="Find a place" data-i18n-es="Encuentra un lugar">Find a place</span><br> <span data-i18n-en="to call" data-i18n-es="para llamar">to call</span> <span class="accent" data-i18n-en="home" data-i18n-es="hogar">home</span>.</h1>
+    <p class="hero-sub" data-i18n-en="Browse our growing catalog of properties for sale or rent across multiple countries — currently featuring listings in Barbados, the Turks and Caicos Islands and Colombia, with more markets coming soon." data-i18n-es="Explora nuestro catálogo creciente de propiedades en venta o alquiler en múltiples países — actualmente con propiedades en Barbados, las Islas Turcas y Caicos y Colombia, con más mercados próximamente.">Browse our growing catalog of properties for sale or rent across multiple countries — currently featuring listings in Barbados, the Turks and Caicos Islands and Colombia, with more markets coming soon.</p>
 
     <form class="search-card" id="searchForm">
       <div class="search-field">
-        <label for="searchKeyword">Keyword or city</label>
-        <input type="text" id="searchKeyword" placeholder="e.g. St. Philip, Bridgetown, condo…" />
+        <label for="searchKeyword" data-i18n-en="Keyword or city" data-i18n-es="Palabra clave o ciudad">Keyword or city</label>
+        <input type="text" id="searchKeyword" placeholder="e.g. St. Philip, Bridgetown, condo…" data-i18n-en-placeholder="e.g. St. Philip, Bridgetown, condo…" data-i18n-es-placeholder="ej. St. Philip, Bridgetown, condominio…" />
       </div>
       <div class="search-field">
-        <label for="searchType">I want to</label>
+        <label for="searchType" data-i18n-en="I want to" data-i18n-es="Quiero">I want to</label>
         <select id="searchType">
-          <option value="all">Buy or Rent</option>
-          <option value="sale">Buy</option>
-          <option value="rent">Rent</option>
+          <option value="all" data-i18n-en="Buy or Rent" data-i18n-es="Comprar o Alquilar">Buy or Rent</option>
+          <option value="sale" data-i18n-en="Buy" data-i18n-es="Comprar">Buy</option>
+          <option value="rent" data-i18n-en="Rent" data-i18n-es="Alquilar">Rent</option>
         </select>
       </div>
       <div class="search-field">
-        <label for="searchPrice">Max price</label>
+        <label for="searchPrice" data-i18n-en="Max price" data-i18n-es="Precio máximo">Max price</label>
         <select id="searchPrice">
-          <option value="0">Any price</option>
+          <option value="0" data-i18n-en="Any price" data-i18n-es="Cualquier precio">Any price</option>
           <option value="1500">$1,500</option>
           <option value="3000">$3,000</option>
           <option value="300000">$300,000</option>
@@ -71,7 +79,7 @@
           <option value="1000000">$1,000,000</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary search-btn">Search</button>
+      <button type="submit" class="btn btn-primary search-btn" data-i18n-en="Search" data-i18n-es="Buscar">Search</button>
     </form>
   </div>
 </section>
@@ -81,60 +89,60 @@
   <div class="container">
     <div class="section-heading">
       <div>
-        <span class="eyebrow">Property catalog</span>
-        <h2>Featured Properties</h2>
+        <span class="eyebrow" data-i18n-en="Property catalog" data-i18n-es="Catálogo de propiedades">Property catalog</span>
+        <h2 data-i18n-en="Featured Properties" data-i18n-es="Propiedades Destacadas">Featured Properties</h2>
       </div>
-      <p class="results-count"><strong id="resultsCount">0</strong> properties found</p>
+      <p class="results-count"><strong id="resultsCount">0</strong> <span data-i18n-en="properties found" data-i18n-es="propiedades encontradas">properties found</span></p>
     </div>
 
     <div class="catalog-layout">
       <!-- Filters sidebar -->
       <aside class="filters" id="filters">
         <div class="filters-head">
-          <h3>Filters</h3>
-          <button type="button" id="resetFilters" class="link-btn">Reset</button>
+          <h3 data-i18n-en="Filters" data-i18n-es="Filtros">Filters</h3>
+          <button type="button" id="resetFilters" class="link-btn" data-i18n-en="Reset" data-i18n-es="Reiniciar">Reset</button>
         </div>
 
         <div class="filter-group">
-          <h4>Status</h4>
+          <h4 data-i18n-en="Status" data-i18n-es="Estado">Status</h4>
           <div class="chip-group" id="statusChips">
-            <button type="button" class="chip active" data-status="all">All</button>
-            <button type="button" class="chip" data-status="sale">For Sale</button>
-            <button type="button" class="chip" data-status="rent">For Rent</button>
+            <button type="button" class="chip active" data-status="all" data-i18n-en="All" data-i18n-es="Todos">All</button>
+            <button type="button" class="chip" data-status="sale" data-i18n-en="For Sale" data-i18n-es="En venta">For Sale</button>
+            <button type="button" class="chip" data-status="rent" data-i18n-en="For Rent" data-i18n-es="En alquiler">For Rent</button>
           </div>
         </div>
 
         <div class="filter-group">
-          <h4>Property type</h4>
+          <h4 data-i18n-en="Property type" data-i18n-es="Tipo de propiedad">Property type</h4>
           <select id="filterPropertyType">
-            <option value="all">All types</option>
-            <option value="House">House</option>
-            <option value="Apartment">Apartment</option>
-            <option value="Condo">Condo</option>
-            <option value="Townhouse">Townhouse</option>
-            <option value="Studio">Studio</option>
-            <option value="Land">Land</option>
+            <option value="all" data-i18n-en="All types" data-i18n-es="Todos los tipos">All types</option>
+            <option value="House" data-i18n-en="House" data-i18n-es="Casa">House</option>
+            <option value="Apartment" data-i18n-en="Apartment" data-i18n-es="Apartamento">Apartment</option>
+            <option value="Condo" data-i18n-en="Condo" data-i18n-es="Condominio">Condo</option>
+            <option value="Townhouse" data-i18n-en="Townhouse" data-i18n-es="Casa adosada">Townhouse</option>
+            <option value="Studio" data-i18n-en="Studio" data-i18n-es="Estudio">Studio</option>
+            <option value="Land" data-i18n-en="Land" data-i18n-es="Terreno">Land</option>
           </select>
         </div>
 
         <div class="filter-group">
-          <h4>Country</h4>
+          <h4 data-i18n-en="Country" data-i18n-es="País">Country</h4>
           <select id="filterCountry">
-            <option value="all">All countries</option>
+            <option value="all" data-i18n-en="All countries" data-i18n-es="Todos los países">All countries</option>
           </select>
         </div>
 
         <div class="filter-group">
-          <h4>Location</h4>
+          <h4 data-i18n-en="Location" data-i18n-es="Ubicación">Location</h4>
           <select id="filterLocation">
-            <option value="all">All cities</option>
+            <option value="all" data-i18n-en="All cities" data-i18n-es="Todas las ciudades">All cities</option>
           </select>
         </div>
 
         <div class="filter-group">
-          <h4>Bedrooms</h4>
+          <h4 data-i18n-en="Bedrooms" data-i18n-es="Habitaciones">Bedrooms</h4>
           <select id="filterBeds">
-            <option value="0">Any</option>
+            <option value="0" data-i18n-en="Any" data-i18n-es="Cualquiera">Any</option>
             <option value="1">1+</option>
             <option value="2">2+</option>
             <option value="3">3+</option>
@@ -143,18 +151,18 @@
         </div>
 
         <div class="filter-group">
-          <h4>Max price: <span id="priceRangeLabel">Any</span></h4>
+          <h4><span data-i18n-en="Max price:" data-i18n-es="Precio máximo:">Max price:</span> <span id="priceRangeLabel">Any</span></h4>
           <input type="range" id="filterPriceRange" min="0" max="1000000" step="10000" value="1000000" />
         </div>
 
         <div class="filter-group">
-          <h4>Sort by</h4>
+          <h4 data-i18n-en="Sort by" data-i18n-es="Ordenar por">Sort by</h4>
           <select id="sortBy">
-            <option value="default">Recommended</option>
-            <option value="price-asc">Price: Low to High</option>
-            <option value="price-desc">Price: High to Low</option>
-            <option value="beds-desc">Most Bedrooms</option>
-            <option value="newest">Newest</option>
+            <option value="default" data-i18n-en="Recommended" data-i18n-es="Recomendado">Recommended</option>
+            <option value="price-asc" data-i18n-en="Price: Low to High" data-i18n-es="Precio: menor a mayor">Price: Low to High</option>
+            <option value="price-desc" data-i18n-en="Price: High to Low" data-i18n-es="Precio: mayor a menor">Price: High to Low</option>
+            <option value="beds-desc" data-i18n-en="Most Bedrooms" data-i18n-es="Más habitaciones">Most Bedrooms</option>
+            <option value="newest" data-i18n-en="Newest" data-i18n-es="Más recientes">Newest</option>
           </select>
         </div>
       </aside>
@@ -162,7 +170,7 @@
       <!-- Cards grid -->
       <div class="listings-main">
         <div class="grid" id="propertyGrid"><!-- cards injected by script.js --></div>
-        <p class="empty-state" id="emptyState" hidden>No properties match your filters. Try widening your search.</p>
+        <p class="empty-state" id="emptyState" hidden data-i18n-en="No properties match your filters. Try widening your search." data-i18n-es="Ninguna propiedad coincide con tus filtros. Intenta ampliar tu búsqueda.">No properties match your filters. Try widening your search.</p>
       </div>
     </div>
   </div>
@@ -171,23 +179,23 @@
 <!-- ===== How it works ===== -->
 <section class="how-it-works" id="how-it-works">
   <div class="container">
-    <span class="eyebrow">Simple process</span>
-    <h2>How Estate Hub works</h2>
+    <span class="eyebrow" data-i18n-en="Simple process" data-i18n-es="Proceso sencillo">Simple process</span>
+    <h2 data-i18n-en="How Estate Hub works" data-i18n-es="Cómo funciona Estate Hub">How Estate Hub works</h2>
     <div class="steps">
       <div class="step">
         <span class="step-num">01</span>
-        <h3>Search &amp; filter</h3>
-        <p>Narrow down listings by city, price, bedrooms and status until you find the right fit.</p>
+        <h3 data-i18n-en="Search &amp; filter" data-i18n-es="Busca y filtra">Search &amp; filter</h3>
+        <p data-i18n-en="Narrow down listings by city, price, bedrooms and status until you find the right fit." data-i18n-es="Filtra propiedades por ciudad, precio, habitaciones y estado hasta encontrar la ideal.">Narrow down listings by city, price, bedrooms and status until you find the right fit.</p>
       </div>
       <div class="step">
         <span class="step-num">02</span>
-        <h3>Book a tour</h3>
-        <p>Reach out through the listing page to schedule an in-person or virtual walkthrough.</p>
+        <h3 data-i18n-en="Book a tour" data-i18n-es="Agenda una visita">Book a tour</h3>
+        <p data-i18n-en="Reach out through the listing page to schedule an in-person or virtual walkthrough." data-i18n-es="Contáctanos desde la página de la propiedad para agendar una visita presencial o virtual.">Reach out through the listing page to schedule an in-person or virtual walkthrough.</p>
       </div>
       <div class="step">
         <span class="step-num">03</span>
-        <h3>Make it official</h3>
-        <p>Our team guides you through the offer, paperwork and closing — start to finish.</p>
+        <h3 data-i18n-en="Make it official" data-i18n-es="Hazlo oficial">Make it official</h3>
+        <p data-i18n-en="Our team guides you through the offer, paperwork and closing — start to finish." data-i18n-es="Nuestro equipo te acompaña durante la oferta, el papeleo y el cierre — de principio a fin.">Our team guides you through the offer, paperwork and closing — start to finish.</p>
       </div>
     </div>
   </div>
@@ -197,13 +205,13 @@
 <section class="about" id="about">
   <div class="container about-inner">
     <div class="about-copy">
-      <span class="eyebrow">About Estate Hub</span>
-      <h2>A growing catalog, one real listing at a time.</h2>
-      <p>Estate Hub is our property catalog, built to expand as we add real listings across new countries. It currently features listings in Harmony Hall and Chance Hall, Barbados; Providenciales, Turks and Caicos Islands; and Engativá, Bogotá, Colombia — with more on the way in other markets.</p>
+      <span class="eyebrow" data-i18n-en="About Estate Hub" data-i18n-es="Sobre Estate Hub">About Estate Hub</span>
+      <h2 data-i18n-en="A growing catalog, one real listing at a time." data-i18n-es="Un catálogo creciente, una propiedad real a la vez.">A growing catalog, one real listing at a time.</h2>
+      <p data-i18n-en="Estate Hub is our property catalog, built to expand as we add real listings across new countries. It currently features listings in Harmony Hall and Chance Hall, Barbados; Providenciales, Turks and Caicos Islands; and Engativá, Bogotá, Colombia — with more on the way in other markets." data-i18n-es="Estate Hub es nuestro catálogo de propiedades, diseñado para crecer a medida que agregamos propiedades reales en nuevos países. Actualmente incluye propiedades en Harmony Hall y Chance Hall, Barbados; Providenciales, Islas Turcas y Caicos; y Engativá, Bogotá, Colombia — con más mercados en camino.">Estate Hub is our property catalog, built to expand as we add real listings across new countries. It currently features listings in Harmony Hall and Chance Hall, Barbados; Providenciales, Turks and Caicos Islands; and Engativá, Bogotá, Colombia — with more on the way in other markets.</p>
       <ul class="about-list">
-        <li>Fully responsive layout, no frameworks required</li>
-        <li>Client-side filtering &amp; sorting across every listing</li>
-        <li>New properties and locations added as they're listed</li>
+        <li data-i18n-en="Fully responsive layout, no frameworks required" data-i18n-es="Diseño totalmente responsivo, sin frameworks necesarios">Fully responsive layout, no frameworks required</li>
+        <li data-i18n-en="Client-side filtering &amp; sorting across every listing" data-i18n-es="Filtrado y ordenamiento del lado del cliente en todas las propiedades">Client-side filtering &amp; sorting across every listing</li>
+        <li data-i18n-en="New properties and locations added as they're listed" data-i18n-es="Nuevas propiedades y ubicaciones agregadas a medida que se publican">New properties and locations added as they're listed</li>
       </ul>
       <div class="market-flags">
         <span class="market-flag"><span class="flag">🇧🇧</span> Barbados</span>
@@ -211,12 +219,12 @@
         <span class="market-flag"><span class="flag">🇨🇴</span> Colombia</span>
         <span class="market-flag"><span class="flag">🇯🇲</span> Jamaica</span>
       </div>
-      <p class="market-note">Live listings in Barbados, the Turks and Caicos Islands and Colombia, with Jamaica coming soon.</p>
+      <p class="market-note" data-i18n-en="Live listings in Barbados, the Turks and Caicos Islands and Colombia, with Jamaica coming soon." data-i18n-es="Propiedades activas en Barbados, las Islas Turcas y Caicos y Colombia, con Jamaica próximamente.">Live listings in Barbados, the Turks and Caicos Islands and Colombia, with Jamaica coming soon.</p>
     </div>
     <div class="about-card">
-      <div class="about-card-row"><strong>Featured properties</strong><span id="aboutCount">—</span></div>
-      <div class="about-card-row"><strong>Countries</strong><span>Barbados, Turks &amp; Caicos, Colombia (more coming soon)</span></div>
-      <div class="about-card-row"><strong>Status</strong><span>Actively expanding</span></div>
+      <div class="about-card-row"><strong data-i18n-en="Featured properties" data-i18n-es="Propiedades destacadas">Featured properties</strong><span id="aboutCount">—</span></div>
+      <div class="about-card-row"><strong data-i18n-en="Countries" data-i18n-es="Países">Countries</strong><span data-i18n-en="Barbados, Turks &amp; Caicos, Colombia (more coming soon)" data-i18n-es="Barbados, Turcas y Caicos, Colombia (más próximamente)">Barbados, Turks &amp; Caicos, Colombia (more coming soon)</span></div>
+      <div class="about-card-row"><strong data-i18n-en="Status" data-i18n-es="Estado">Status</strong><span data-i18n-en="Actively expanding" data-i18n-es="En expansión activa">Actively expanding</span></div>
     </div>
   </div>
 </section>
@@ -225,12 +233,12 @@
 <section class="contact" id="contact">
   <div class="container contact-inner">
     <div class="contact-copy">
-      <span class="eyebrow">Get in touch</span>
-      <h2>Have a property to list, or looking to buy?</h2>
-      <p>Fill out the form and our team will follow up. This form is a static demo — connect it to Formspree, Netlify Forms or your own backend to make it functional.</p>
+      <span class="eyebrow" data-i18n-en="Get in touch" data-i18n-es="Contáctanos">Get in touch</span>
+      <h2 data-i18n-en="Have a property to list, or looking to buy?" data-i18n-es="¿Tienes una propiedad para publicar, o buscas comprar?">Have a property to list, or looking to buy?</h2>
+      <p data-i18n-en="Fill out the form and our team will follow up. This form is a static demo — connect it to Formspree, Netlify Forms or your own backend to make it functional." data-i18n-es="Completa el formulario y nuestro equipo te contactará. Este formulario es una demostración estática — conéctalo a Formspree, Netlify Forms o tu propio backend para hacerlo funcional.">Fill out the form and our team will follow up. This form is a static demo — connect it to Formspree, Netlify Forms or your own backend to make it functional.</p>
       <div class="contact-details">
         <div>
-          <strong>Email</strong>
+          <strong data-i18n-en="Email" data-i18n-es="Correo">Email</strong>
           <span>customerservice@genesispii.com</span>
           <span>clinggi@genesisintgroup.com</span>
           <span>jcordova@genesisintgroup.com</span>
@@ -239,17 +247,17 @@
       </div>
     </div>
     <form class="contact-form" onsubmit="return false;">
-      <label>Full name<input type="text" placeholder="Jane Doe" required /></label>
+      <label><span data-i18n-en="Full name" data-i18n-es="Nombre completo">Full name</span><input type="text" placeholder="Jane Doe" required /></label>
       <label>Email<input type="email" placeholder="jane@email.com" required /></label>
-      <label>I'm interested in
+      <label><span data-i18n-en="I'm interested in" data-i18n-es="Estoy interesado en">I'm interested in</span>
         <select>
-          <option>Buying a property</option>
-          <option>Renting a property</option>
-          <option>Listing my property</option>
+          <option data-i18n-en="Buying a property" data-i18n-es="Comprar una propiedad">Buying a property</option>
+          <option data-i18n-en="Renting a property" data-i18n-es="Alquilar una propiedad">Renting a property</option>
+          <option data-i18n-en="Listing my property" data-i18n-es="Publicar mi propiedad">Listing my property</option>
         </select>
       </label>
-      <label>Message<textarea rows="3" placeholder="Tell us what you're looking for…"></textarea></label>
-      <button type="submit" class="btn btn-primary">Send message</button>
+      <label><span data-i18n-en="Message" data-i18n-es="Mensaje">Message</span><textarea rows="3" placeholder="Tell us what you're looking for…" data-i18n-en-placeholder="Tell us what you're looking for…" data-i18n-es-placeholder="Cuéntanos qué estás buscando…"></textarea></label>
+      <button type="submit" class="btn btn-primary" data-i18n-en="Send message" data-i18n-es="Enviar mensaje">Send message</button>
     </form>
   </div>
 </section>
@@ -259,16 +267,16 @@
   <div class="container footer-inner">
     <div class="footer-col brand-col">
       <a href="#top" class="brand"><span class="brand-logo-chip"><img src="images/genesis-logo.png" alt="Genesis PIS" class="brand-logo"></span><span class="brand-sep"></span><span class="brand-name">Estate<b>Hub</b></span></a>
-      <p>A growing catalog of real properties across multiple locations.</p>
+      <p data-i18n-en="A growing catalog of real properties across multiple locations." data-i18n-es="Un catálogo creciente de propiedades reales en múltiples ubicaciones.">A growing catalog of real properties across multiple locations.</p>
     </div>
     <div class="footer-col">
-      <h4>Explore</h4>
-      <a href="#listings">Listings</a>
-      <a href="#how-it-works">How it works</a>
-      <a href="#about">About</a>
+      <h4 data-i18n-en="Explore" data-i18n-es="Explorar">Explore</h4>
+      <a href="#listings" data-i18n-en="Listings" data-i18n-es="Propiedades">Listings</a>
+      <a href="#how-it-works" data-i18n-en="How it works" data-i18n-es="Cómo funciona">How it works</a>
+      <a href="#about" data-i18n-en="About" data-i18n-es="Nosotros">About</a>
     </div>
     <div class="footer-col">
-      <h4>Contact</h4>
+      <h4 data-i18n-en="Contact" data-i18n-es="Contacto">Contact</h4>
       <a href="mailto:customerservice@genesispii.com">customerservice@genesispii.com</a>
       <a href="mailto:clinggi@genesisintgroup.com">clinggi@genesisintgroup.com</a>
       <a href="mailto:jcordova@genesisintgroup.com">jcordova@genesisintgroup.com</a>
@@ -276,10 +284,11 @@
     </div>
   </div>
   <div class="container footer-bottom">
-    <span>© <span id="year"></span> Estate Hub. Listing details provided by the seller; buyers should verify all information independently.</span>
+    <span>© <span id="year"></span> <span data-i18n-en="Estate Hub. Listing details provided by the seller; buyers should verify all information independently." data-i18n-es="Estate Hub. Los detalles de cada propiedad son proporcionados por el vendedor; los compradores deben verificar toda la información de forma independiente.">Estate Hub. Listing details provided by the seller; buyers should verify all information independently.</span></span>
   </div>
 </footer>
 
+<script src="lang.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

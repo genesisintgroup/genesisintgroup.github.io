@@ -41,28 +41,12 @@ function initNav() {
   });
 }
 
-function initLangToggle() {
-  const toggles = document.querySelectorAll(".lang-toggle");
-  if (!toggles.length) return;
-  toggles.forEach((toggle) => {
-    const buttons = toggle.querySelectorAll("[data-lang-btn]");
-    function setLang(lang) {
-      document.querySelectorAll(".lang-toggle [data-lang-btn]").forEach((b) => {
-        b.classList.toggle("active", b.dataset.langBtn === lang);
-      });
-      document.querySelectorAll(".lang-block").forEach((b) => {
-        b.classList.toggle("active", b.dataset.lang === lang);
-      });
-    }
-    buttons.forEach((b) => {
-      b.addEventListener("click", () => setLang(b.dataset.langBtn));
-    });
-  });
-}
+// Note: the English/Spanish toggle itself now lives in lang.js
+// (site-wide header toggle) — it handles every [data-lang-btn] /
+// .lang-block / .lang-inline element on the page automatically.
 
 const yearEl = document.getElementById("year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 initLightbox();
 initNav();
-initLangToggle();

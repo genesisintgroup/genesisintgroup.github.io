@@ -831,6 +831,35 @@ code {
 }
 .lang-block { display: none; }
 .lang-block.active { display: block; }
+.lang-inline { display: none; }
+.lang-inline.active { display: inline; }
+
+/* ============ Header language toggle (site-wide) ============ */
+.lang-toggle-header {
+  display: inline-flex;
+  gap: .2em;
+  padding: .2em;
+  background: #eef1f5;
+  border-radius: 999px;
+  flex-shrink: 0;
+}
+.lang-toggle-header button {
+  border: none;
+  background: transparent;
+  padding: .4em .8em;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: .72rem;
+  letter-spacing: .02em;
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-family: inherit;
+}
+.lang-toggle-header button.active {
+  background: var(--primary);
+  color: #fff;
+}
+.lang-toggle-mobile { display: none; }
 
 .location { padding: 4em 0; background: #e9edf2; }
 .location-intro { max-width: 700px; }
@@ -866,6 +895,12 @@ code {
   .brand-name { font-size: .95rem; white-space: nowrap; }
   .header-actions { gap: .4em; }
   .header-actions .btn { display: none; }
+  .header-actions .lang-toggle-header { display: none; }
+  .lang-toggle-mobile {
+    display: inline-flex;
+    margin: .8em 0 .2em;
+  }
+  .lang-toggle-mobile button { font-size: .82rem; padding: .5em 1em; }
   .main-nav {
     display: none;
     position: absolute;

@@ -1,4 +1,45 @@
 // ---------------------------------------------------------------
+// Card copy in English / Spanish, keyed off the site-wide toggle
+// in lang.js (window.EstateHubLang).
+// ---------------------------------------------------------------
+const CARD_STRINGS = {
+  en: {
+    forSale: "For Sale",
+    forRent: "For Rent",
+    sold: "Sold",
+    comingSoon: "Coming Soon",
+    viewDetails: "View details →",
+    sqftLand: "sq ft land",
+    acres: "acres",
+    studio: "Studio",
+    bd: "bd",
+    ba: "ba",
+    perMonth: "/mo",
+    any: "Any",
+    lotM2: "m² lot",
+  },
+  es: {
+    forSale: "En venta",
+    forRent: "En alquiler",
+    sold: "Vendida",
+    comingSoon: "Próximamente",
+    viewDetails: "Ver detalles →",
+    sqftLand: "pies² de terreno",
+    acres: "acres",
+    studio: "Estudio",
+    bd: "hab",
+    ba: "baños",
+    perMonth: "/mes",
+    any: "Cualquiera",
+    lotM2: "m² de lote",
+  },
+};
+function t() {
+  const lang = window.EstateHubLang ? window.EstateHubLang.getLang() : "en";
+  return CARD_STRINGS[lang] || CARD_STRINGS.en;
+}
+
+// ---------------------------------------------------------------
 // Property data — add a new object here for every real listing.
 // Set "photo" to an image path (e.g. "images/yourphoto.jpeg") for
 // a real listing, or to one of the photo-1..photo-6 gradient
@@ -66,7 +107,7 @@ const PROPERTIES = [
     baths: 5,
     city: "Engativá, Bogotá, Colombia",
     country: "Colombia",
-    landDisplay: "130 m² lot",
+    landSqm: 130,
     photo: "images/floridablanca-hero.jpeg",
     isPhotoImage: true,
     featured: false,
@@ -95,28 +136,29 @@ const state = {
 };
 
 function renderCard(p) {
+  const s = t();
   const priceLabel = p.sold
-    ? "Sold"
+    ? s.sold
     : p.comingSoon
-    ? "Coming Soon"
+    ? s.comingSoon
     : p.priceDisplay
     ? p.priceDisplay
-    : p.status === "rent" ? `${currency(p.price)}<span>/mo</span>` : currency(p.price);
+    : p.status === "rent" ? `${currency(p.price)}<span>${s.perMonth}</span>` : currency(p.price);
   const priceClass = p.sold ? " sold" : p.comingSoon ? " coming-soon" : "";
-  const badgeLabel = p.sold ? "Sold" : p.status === "sale" ? "For Sale" : "For Rent";
+  const badgeLabel = p.sold ? s.sold : p.status === "sale" ? s.forSale : s.forRent;
   const badgeClass = p.sold ? "sold" : p.status;
   const photoInner = p.isPhotoImage
     ? `<img src="${p.photo}" alt="${p.title}" loading="lazy">`
     : `<span class="icon">⌂</span>`;
   const photoClass = p.isPhotoImage ? "" : p.photo;
-  const bedsMeta = p.beds !== undefined ? `<span>🛏 ${p.beds === 0 ? "Studio" : p.beds + " bd"}</span>` : "";
-  const bathsMeta = p.baths !== undefined ? `<span>🛁 ${p.baths} ba</span>` : "";
-  const landMeta = p.landDisplay
-    ? `<span>📐 ${p.landDisplay}</span>`
+  const bedsMeta = p.beds !== undefined ? `<span>🛏 ${p.beds === 0 ? s.studio : p.beds + " " + s.bd}</span>` : "";
+  const bathsMeta = p.baths !== undefined ? `<span>🛁 ${p.baths} ${s.ba}</span>` : "";
+  const landMeta = p.landSqm
+    ? `<span>📐 ${p.landSqm} ${s.lotM2}</span>`
     : p.acres
-    ? `<span>📐 ${p.acres} acres</span>`
+    ? `<span>📐 ${p.acres} ${s.acres}</span>`
     : p.land
-    ? `<span>📐 ${p.land.toLocaleString()} sq ft land</span>`
+    ? `<span>📐 ${p.land.toLocaleString()} ${s.sqftLand}</span>`
     : "";
   const href = p.detailUrl || "#";
 
@@ -135,7 +177,7 @@ function renderCard(p) {
           ${bathsMeta}
           ${landMeta}
         </div>
-        <div class="card-cta">View details →</div>
+        <div class="card-cta">${s.viewDetails}</div>
       </div>
     </a>
   `;
@@ -239,7 +281,7 @@ function initFilters() {
   priceRange.addEventListener("input", (e) => {
     const val = Number(e.target.value);
     state.maxPrice = val;
-    priceLabel.textContent = val >= 1000000 ? "Any" : currency(val);
+    priceLabel.textContent = val >= 1000000 ? t().any : currency(val);
     render();
   });
 
@@ -265,7 +307,7 @@ function initFilters() {
     document.getElementById("filterLocation").value = "all";
     document.getElementById("filterBeds").value = "0";
     priceRange.value = 1000000;
-    priceLabel.textContent = "Any";
+    priceLabel.textContent = t().any;
     document.getElementById("sortBy").value = "default";
     document.getElementById("searchKeyword").value = "";
 
@@ -310,3 +352,14 @@ populateLocations();
 initFilters();
 initNav();
 render();
+
+// Re-render cards (and refresh the price-range label) whenever the
+// site-wide language toggle in lang.js changes.
+document.addEventListener("langchange", () => {
+  const priceRange = document.getElementById("filterPriceRange");
+  const priceLabel = document.getElementById("priceRangeLabel");
+  if (priceRange && priceLabel) {
+    priceLabel.textContent = Number(priceRange.value) >= 1000000 ? t().any : currency(Number(priceRange.value));
+  }
+  render();
+});

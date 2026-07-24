@@ -22,17 +22,25 @@
     </a>
 
     <nav class="main-nav" id="mainNav">
-      <a href="index.html#listings">Listings</a>
-      <a href="index.html#how-it-works">How It Works</a>
-      <a href="index.html#about">About</a>
-      <a href="index.html#contact">Contact</a>
-      <a href="index.html#contact" class="mobile-nav-cta">Sign In</a>
-      <a href="index.html#contact" class="mobile-nav-cta mobile-nav-cta-primary">List a Property</a>
+      <a href="index.html#listings" data-i18n-en="Listings" data-i18n-es="Propiedades">Listings</a>
+      <a href="index.html#how-it-works" data-i18n-en="How It Works" data-i18n-es="Cómo Funciona">How It Works</a>
+      <a href="index.html#about" data-i18n-en="About" data-i18n-es="Nosotros">About</a>
+      <a href="index.html#contact" data-i18n-en="Contact" data-i18n-es="Contacto">Contact</a>
+      <div class="lang-toggle-header lang-toggle-mobile">
+        <button type="button" data-lang-btn="en" class="active">English</button>
+        <button type="button" data-lang-btn="es">Español</button>
+      </div>
+      <a href="index.html#contact" class="mobile-nav-cta" data-i18n-en="Sign In" data-i18n-es="Iniciar sesión">Sign In</a>
+      <a href="index.html#contact" class="mobile-nav-cta mobile-nav-cta-primary" data-i18n-en="List a Property" data-i18n-es="Publicar propiedad">List a Property</a>
     </nav>
 
     <div class="header-actions">
-      <a href="index.html#contact" class="btn btn-ghost">Sign In</a>
-      <a href="index.html#contact" class="btn btn-primary">List a Property</a>
+      <div class="lang-toggle-header">
+        <button type="button" data-lang-btn="en" class="active">EN</button>
+        <button type="button" data-lang-btn="es">ES</button>
+      </div>
+      <a href="index.html#contact" class="btn btn-ghost" data-i18n-en="Sign In" data-i18n-es="Iniciar sesión">Sign In</a>
+      <a href="index.html#contact" class="btn btn-primary" data-i18n-en="List a Property" data-i18n-es="Publicar propiedad">List a Property</a>
       <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </button>
@@ -41,7 +49,7 @@
 </header>
 
 <div class="container">
-  <a href="index.html#listings" class="back-link">← Back to listings</a>
+  <a href="index.html#listings" class="back-link" data-i18n-en="← Back to listings" data-i18n-es="← Volver a propiedades">← Back to listings</a>
 </div>
 
 <!-- ===== Hero photo ===== -->
@@ -66,8 +74,8 @@
     <div class="qf"><span>City / Ciudad</span><span>Bogotá, Colombia</span></div>
   </div>
   <div class="hero-ctas">
-    <a href="index.html#contact" class="btn btn-primary">Contact about similar properties</a>
-    <a href="#location" class="btn btn-ghost-light">View location</a>
+    <a href="index.html#contact" class="btn btn-primary" data-i18n-en="Contact about similar properties" data-i18n-es="Contáctenos por propiedades similares">Contact about similar properties</a>
+    <a href="#location" class="btn btn-ghost-light" data-i18n-en="View location" data-i18n-es="Ver ubicación">View location</a>
   </div>
 </div>
 
@@ -75,12 +83,7 @@
 <section class="overview">
   <div class="container overview-inner">
     <span class="eyebrow">Overview / Resumen</span>
-    <h2>Available in English and Spanish &middot; Disponible en inglés y español</h2>
-
-    <div class="lang-toggle">
-      <button type="button" data-lang-btn="en" class="active">English</button>
-      <button type="button" data-lang-btn="es">Español</button>
-    </div>
+    <h2 data-i18n-en="Multi-family house in Engativá, Bogotá" data-i18n-es="Casa multifamiliar en Engativá, Bogotá">Multi-family house in Engativá, Bogotá</h2>
 
     <!-- ---- English ---- -->
     <div class="lang-block active" data-lang="en">
@@ -224,16 +227,16 @@
   <div class="container footer-inner">
     <div class="footer-col brand-col">
       <a href="index.html#top" class="brand"><span class="brand-logo-chip"><img src="images/genesis-logo.png" alt="Genesis PIS" class="brand-logo"></span><span class="brand-sep"></span><span class="brand-name">Estate<b>Hub</b></span></a>
-      <p>A growing catalog of real properties across multiple locations.</p>
+      <p data-i18n-en="A growing catalog of real properties across multiple locations." data-i18n-es="Un catálogo creciente de propiedades reales en múltiples ubicaciones.">A growing catalog of real properties across multiple locations.</p>
     </div>
     <div class="footer-col">
-      <h4>Explore</h4>
-      <a href="index.html#listings">Listings</a>
-      <a href="index.html#how-it-works">How it works</a>
-      <a href="index.html#about">About</a>
+      <h4 data-i18n-en="Explore" data-i18n-es="Explorar">Explore</h4>
+      <a href="index.html#listings" data-i18n-en="Listings" data-i18n-es="Propiedades">Listings</a>
+      <a href="index.html#how-it-works" data-i18n-en="How it works" data-i18n-es="Cómo funciona">How it works</a>
+      <a href="index.html#about" data-i18n-en="About" data-i18n-es="Nosotros">About</a>
     </div>
     <div class="footer-col">
-      <h4>Contact</h4>
+      <h4 data-i18n-en="Contact" data-i18n-es="Contacto">Contact</h4>
       <a href="mailto:customerservice@genesispii.com">customerservice@genesispii.com</a>
       <a href="mailto:clinggi@genesisintgroup.com">clinggi@genesisintgroup.com</a>
       <a href="mailto:jcordova@genesisintgroup.com">jcordova@genesisintgroup.com</a>
@@ -241,7 +244,7 @@
     </div>
   </div>
   <div class="container footer-bottom">
-    <span>© <span id="year"></span> Estate Hub. Listing details provided by the seller; buyers should verify all information independently.</span>
+    <span>© <span id="year"></span> <span data-i18n-en="Estate Hub. Listing details provided by the seller; buyers should verify all information independently." data-i18n-es="Estate Hub. Los detalles de cada propiedad son proporcionados por el vendedor; los compradores deben verificar toda la información de forma independiente.">Estate Hub. Listing details provided by the seller; buyers should verify all information independently.</span></span>
   </div>
 </footer>
 
@@ -251,6 +254,7 @@
   <img id="lightboxImg" src="" alt="">
 </div>
 
+<script src="lang.js"></script>
 <script src="property.js"></script>
 </body>
 </html>
