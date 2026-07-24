@@ -55,6 +55,24 @@ const PROPERTIES = [
     daysAgo: 0,
     detailUrl: "property-onemarlin.html",
   },
+  {
+    id: 4,
+    title: "Floridablanca Multi-Family House",
+    type: "House",
+    status: "sale",
+    sold: true,
+    price: 0,
+    beds: 5,
+    baths: 5,
+    city: "Engativá, Bogotá, Colombia",
+    country: "Colombia",
+    landDisplay: "130 m² lot",
+    photo: "images/floridablanca-hero.jpeg",
+    isPhotoImage: true,
+    featured: false,
+    daysAgo: 0,
+    detailUrl: "property-floridablanca.html",
+  },
 ];
 
 const currency = (n) =>
@@ -77,18 +95,25 @@ const state = {
 };
 
 function renderCard(p) {
-  const priceLabel = p.comingSoon
+  const priceLabel = p.sold
+    ? "Sold"
+    : p.comingSoon
     ? "Coming Soon"
     : p.priceDisplay
     ? p.priceDisplay
     : p.status === "rent" ? `${currency(p.price)}<span>/mo</span>` : currency(p.price);
+  const priceClass = p.sold ? " sold" : p.comingSoon ? " coming-soon" : "";
+  const badgeLabel = p.sold ? "Sold" : p.status === "sale" ? "For Sale" : "For Rent";
+  const badgeClass = p.sold ? "sold" : p.status;
   const photoInner = p.isPhotoImage
     ? `<img src="${p.photo}" alt="${p.title}" loading="lazy">`
     : `<span class="icon">⌂</span>`;
   const photoClass = p.isPhotoImage ? "" : p.photo;
   const bedsMeta = p.beds !== undefined ? `<span>🛏 ${p.beds === 0 ? "Studio" : p.beds + " bd"}</span>` : "";
   const bathsMeta = p.baths !== undefined ? `<span>🛁 ${p.baths} ba</span>` : "";
-  const landMeta = p.acres
+  const landMeta = p.landDisplay
+    ? `<span>📐 ${p.landDisplay}</span>`
+    : p.acres
     ? `<span>📐 ${p.acres} acres</span>`
     : p.land
     ? `<span>📐 ${p.land.toLocaleString()} sq ft land</span>`
@@ -99,10 +124,10 @@ function renderCard(p) {
     <a class="card" href="${href}" data-id="${p.id}">
       <div class="card-photo ${photoClass}">
         ${photoInner}
-        <span class="badge ${p.status}">${p.status === "sale" ? "For Sale" : "For Rent"}</span>
+        <span class="badge ${badgeClass}">${badgeLabel}</span>
       </div>
       <div class="card-body">
-        <div class="card-price${p.comingSoon ? " coming-soon" : ""}">${priceLabel}</div>
+        <div class="card-price${priceClass}">${priceLabel}</div>
         <h3 class="card-title">${p.title}</h3>
         <div class="card-location">📍 ${p.city} &middot; ${p.type}</div>
         <div class="card-meta">

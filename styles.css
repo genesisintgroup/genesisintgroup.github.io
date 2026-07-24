@@ -799,6 +799,39 @@ code {
   border-top: 1px solid var(--line);
 }
 
+/* ============ Sold status ============ */
+.badge.sold { color: #9c3b3b; }
+.card-price.sold { color: #9c3b3b; font-size: 1.05rem; }
+.hero-quickfacts .qf-price.sold { color: #9c3b3b; font-size: 1.4rem; }
+.badge-status.sold { color: #9c3b3b; }
+
+/* ============ Language toggle ============ */
+.lang-toggle {
+  display: inline-flex;
+  gap: .3em;
+  margin: 0 0 1.6em;
+  padding: .25em;
+  background: #eef1f5;
+  border-radius: 999px;
+}
+.lang-toggle button {
+  border: none;
+  background: transparent;
+  padding: .5em 1.2em;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: .85rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-family: inherit;
+}
+.lang-toggle button.active {
+  background: var(--primary);
+  color: #fff;
+}
+.lang-block { display: none; }
+.lang-block.active { display: block; }
+
 .location { padding: 4em 0; background: #e9edf2; }
 .location-intro { max-width: 700px; }
 .map-frame {
