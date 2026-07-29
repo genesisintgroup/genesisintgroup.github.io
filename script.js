@@ -114,6 +114,24 @@ const PROPERTIES = [
     daysAgo: 0,
     detailUrl: "property-floridablanca.html",
   },
+  {
+    id: 5,
+    title: "Halls Village Family Home",
+    type: "House",
+    status: "sale",
+    price: 370000,
+    priceDisplay: "$740,000 BBD",
+    beds: 5,
+    baths: 2,
+    city: "Halls Village, St. James, Barbados",
+    country: "Barbados",
+    land: 3420,
+    photo: "images/hallsvillage-hero.jpeg",
+    isPhotoImage: true,
+    featured: false,
+    daysAgo: 0,
+    detailUrl: "property-hallsvillage.html",
+  },
 ];
 
 const currency = (n) =>
