@@ -684,7 +684,7 @@ code {
 .qf { display: flex; flex-direction: column; gap: .2em; }
 .qf span:first-child { font-size: .72rem; text-transform: uppercase; letter-spacing: .05em; color: var(--ink-soft); }
 .qf span:last-child { font-weight: 600; }
-.hero-ctas { display: flex; gap: .8em; }
+.hero-ctas { display: flex; flex-wrap: wrap; gap: .8em; }
 .btn-ghost-light {
   background: transparent;
   border-color: var(--line);

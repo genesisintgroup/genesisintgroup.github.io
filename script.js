@@ -149,6 +149,22 @@ const PROPERTIES = [
     detailUrl: "property-tobago.html",
     comingSoon: true,
   },
+  {
+    id: 7,
+    title: "St. Joseph Multi-Unit Residence",
+    type: "House",
+    status: "sale",
+    price: 0,
+    city: "St. Joseph, Trinidad, Trinidad and Tobago",
+    country: "Trinidad and Tobago",
+    land: 4950,
+    photo: "images/stjoseph-hero.jpeg",
+    isPhotoImage: true,
+    featured: false,
+    daysAgo: 0,
+    detailUrl: "property-stjoseph.html",
+    comingSoon: true,
+  },
 ];
 
 const currency = (n) =>
