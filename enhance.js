@@ -136,6 +136,119 @@
       hero.appendChild(el("span", "hero-orb o2"));
     }
 
+
+
+    // Rotating hero photos (one per available listing, crossfade)
+    if (hero && typeof PROPERTIES !== "undefined") {
+      const photos = [...new Set(PROPERTIES.filter((p) => p.isPhotoImage && !p.sold && p.photo).map((p) => p.photo))].sort((a, b) => (b.includes("carnbee") ? 1 : 0) - (a.includes("carnbee") ? 1 : 0));
+      if (photos.length > 1) {
+        hero.classList.add("has-slides");
+        const wrapS = el("div", "hero-slides");
+        const slides = photos.map((src, i) => {
+          const d = el("div", "hero-slide");
+          if (i === 0) { d.style.backgroundImage = "url('" + src + "')"; d.classList.add("on"); }
+          wrapS.appendChild(d);
+          return d;
+        });
+        hero.insertBefore(wrapS, hero.firstChild);
+        let cur = 0, timer = null;
+        const dots = el("div", "hero-dots");
+        const dotEls = photos.map((_, i) => {
+          const b = el("button", i === 0 ? "on" : "", "", { type: "button", "aria-label": "Photo " + (i + 1) });
+          b.addEventListener("click", () => { go(i); restart(); });
+          dots.appendChild(b);
+          return b;
+        });
+        const stats = hero.querySelector(".hero-stats");
+        if (stats) stats.insertAdjacentElement("afterend", dots);
+        function load(i) {
+          if (!slides[i].style.backgroundImage) slides[i].style.backgroundImage = "url('" + photos[i] + "')";
+        }
+        function go(i) {
+          i = (i + photos.length) % photos.length;
+          load(i);
+          slides[cur].classList.remove("on");
+          dotEls[cur].classList.remove("on");
+          cur = i;
+          void slides[cur].offsetWidth;
+          slides[cur].classList.add("on");
+          dotEls[cur].classList.add("on");
+          load((cur + 1) % photos.length);
+        }
+        function restart() { clearInterval(timer); if (!reduce) timer = setInterval(() => go(cur + 1), 6500); }
+        window.addEventListener("load", () => { load(1); restart(); });
+        document.addEventListener("visibilitychange", () => { if (document.hidden) clearInterval(timer); else restart(); });
+      }
+    }
+
+
+    // "Talk to an advisor" -> WhatsApp contacts dialog.
+    // To add another advisor, add an entry here (number: digits only, with country code).
+    const ADVISORS = [
+      { name: "Juan Cordova", role: ["Advisor", "Asesor"], number: "17867311295" },
+    ];
+    const talk = document.querySelector(".btn-hero-ghost");
+    if (talk) {
+      const modal = el("div", "adv-modal", "", { role: "dialog", "aria-modal": "true" });
+      const card = el("div", "adv-card");
+      const closeB = el("button", "adv-close", "✕", { type: "button", "aria-label": "Close" });
+      const h = i18n(el("h3"), "Talk to an advisor", "Hable con un asesor");
+      const sub = i18n(el("p"), "Choose a contact and message us on WhatsApp — we reply in English or Spanish.", "Elija un contacto y escríbanos por WhatsApp — respondemos en inglés o español.");
+      card.append(closeB, h, sub);
+      const MSG = { en: "Hello! I'm interested in a property on Estate Hub.", es: "¡Hola! Me interesa una propiedad en Estate Hub." };
+      const links = [];
+      ADVISORS.forEach((a) => {
+        const row = el("div", "adv-person");
+        row.appendChild(el("div", "adv-avatar", a.name.split(" ").map((w) => w[0]).join("").slice(0, 2)));
+        const info = el("div", "adv-info");
+        info.appendChild(el("strong", null, a.name));
+        info.appendChild(i18n(el("span"), a.role[0], a.role[1]));
+        row.appendChild(info);
+        const wa = el("a", "btn btn-wa", '<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.4.7 4.6 1.9 6.5L3 29l6.9-1.8a13 13 0 0 0 6.1 1.5c7.2 0 13-5.7 13-12.8S23.200 3 16 3zm0 23.300c-2 0-3.900-.6-5.500-1.600l-.4-.2-4.100 1.100 1.100-4-.3-.4a10.400 10.400 0 0 1-1.600-5.500C5.200 9.900 10 5.300 16 5.300s10.800 4.600 10.800 10.400S22 26.300 16 26.300zm5.900-7.800c-.3-.2-1.900-.9-2.200-1s-.5-.2-.7.200-.8 1-1 1.200-.4.2-.7.100a8.800 8.800 0 0 1-4.400-3.800c-.3-.6.300-.5.900-1.700.1-.2 0-.4 0-.5l-1-2.300c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.100-.9.400s-1.200 1.100-1.200 2.700 1.200 3.100 1.400 3.300 2.300 3.500 5.600 4.900c2.100.9 2.900.9 3.900.8.600-.1 1.900-.8 2.200-1.500s.3-1.400.2-1.500-.3-.2-.6-.4z"/></svg><span></span>', { target: "_blank", rel: "noopener" });
+        const waLabel = wa.querySelector("span");
+        i18n(waLabel, "WhatsApp", "WhatsApp");
+        links.push([wa, a.number]);
+        row.appendChild(wa);
+        card.appendChild(row);
+      });
+      const setLinks = () => links.forEach(([wa, n]) => wa.setAttribute("href", "https://wa.me/" + n + "?text=" + encodeURIComponent(MSG[lang()] || MSG.en)));
+      setLinks();
+      document.addEventListener("langchange", setLinks);
+      const alt = el("div", "adv-alt");
+      const call = el("a", "btn btn-ghost-light", "", { href: "tel:+18336650773" });
+      i18n(call, "Call toll-free", "Llamar gratis");
+      const mail = el("a", "btn btn-ghost-light", "", { href: "#contact" });
+      i18n(mail, "Send a message", "Enviar mensaje");
+      mail.addEventListener("click", () => closeM());
+      alt.append(call, mail);
+      card.appendChild(alt);
+      modal.appendChild(card);
+      document.body.appendChild(modal);
+      function openM() { modal.classList.add("open"); document.body.style.overflow = "hidden"; }
+      function closeM() { modal.classList.remove("open"); document.body.style.overflow = ""; }
+      talk.addEventListener("click", (e) => { e.preventDefault(); openM(); });
+      closeB.addEventListener("click", closeM);
+      modal.addEventListener("click", (e) => { if (e.target === modal) closeM(); });
+      document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeM(); });
+    }
+
+    // Hero stats: real numbers from the catalog, with a count-up
+    if (typeof PROPERTIES !== "undefined") {
+      const vals = { props: PROPERTIES.length, countries: new Set(PROPERTIES.map((p) => p.country).filter(Boolean)).size };
+      document.querySelectorAll("[data-count]").forEach((n) => {
+        const target = vals[n.dataset.count];
+        if (target == null) return;
+        if (reduce) { n.textContent = target; return; }
+        const t0 = performance.now(), dur = 1400;
+        n.textContent = "0";
+        (function tick(now) {
+          const k = Math.min(1, (now - t0) / dur);
+          n.textContent = Math.round(target * (1 - Math.pow(1 - k, 3)));
+          if (k < 1) requestAnimationFrame(tick);
+        })(t0);
+      });
+    }
+
     const select = document.getElementById("filterCountry");
     const searchCard = document.getElementById("searchForm");
     if (select && searchCard && typeof PROPERTIES !== "undefined") {
